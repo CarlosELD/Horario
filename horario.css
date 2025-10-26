@@ -1,13 +1,274 @@
-*{
-    border: 1px solid black;
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-}
-.logo1{
-    height: 100px;
-}
-.barra{
-    background-color: green;
-    height: 50%;
-}
+        :root {
+            --color-azul: #1a3c6e;
+            --color-beige: #f5f5dc;
+            --color-blanco: #ffffff;
+            --color-verde: #2e7d32;
+            --color-amarillo: #ffc107;
+            --color-gris-claro: #f8f9fa;
+            --color-gris-oscuro: #343a40;
+            --sombra: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--color-gris-claro);
+            color: var(--color-gris-oscuro);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .barra-superior {
+            background-color: var(--color-verde);
+            color: var(--color-blanco);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: var(--sombra);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo1 {
+            height: 50px;
+            width: auto;
+            margin-right: 15px;
+        }
+
+        .titulo-sistema {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .hora-actual {
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+
+        .cerrar {
+            background-color: var(--color-azul);
+            color: var(--color-blanco);
+            border: 1px solid var(--color-amarillo);
+            border-radius: 8px;
+            font-weight: bold;
+            padding: 8px 15px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .cerrar:hover {
+            background-color: #0d2a4d;
+        }
+
+        .contenedor-principal {
+            display: flex;
+            flex: 1;
+        }
+
+        .barra-lateral {
+            background-color: var(--color-beige);
+            width: 220px;
+            padding: 20px 0;
+            box-shadow: var(--sombra);
+            transition: all 0.3s ease;
+        }
+
+        .opcion-menu {
+            padding: 12px 20px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .opcion-menu:hover {
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+
+        .opcion-menu.activo {
+            background-color: var(--color-azul);
+            color: var(--color-blanco);
+        }
+
+        .contenido {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .seccion {
+            background-color: var(--color-blanco);
+            border: 1px solid var(--color-amarillo);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: var(--sombra);
+        }
+
+        .titulo-seccion {
+            color: var(--color-azul);
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--color-beige);
+        }
+
+        .datos-alumno {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .dato-item {
+            margin-bottom: 10px;
+        }
+
+        .dato-label {
+            font-weight: bold;
+            color: var(--color-azul);
+        }
+
+        .tabla-horarios {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        .tabla-horarios th {
+            background-color: var(--color-azul);
+            color: var(--color-blanco);
+            padding: 12px 10px;
+            text-align: left;
+        }
+
+        .tabla-horarios td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .tabla-horarios tr:nth-child(even) {
+            background-color: var(--color-gris-claro);
+        }
+
+        .tabla-horarios tr:hover {
+            background-color: rgba(26, 60, 110, 0.1);
+        }
+
+        .f-datos {
+            background-color: var(--color-verde);
+            color: var(--color-blanco);
+            padding: 15px;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        .f-datos div {
+            margin-bottom: 5px;
+        }
+
+        /* Estilo para secciones ocultas */
+        .seccion-oculta {
+            display: none;
+        }
+
+        /* Media Queries para Responsividad */
+        @media (max-width: 768px) {
+            .contenedor-principal {
+                flex-direction: column;
+            }
+
+            .barra-lateral {
+                width: 100%;
+                padding: 10px 0;
+            }
+
+            .menu-horizontal {
+                display: flex;
+                overflow-x: auto;
+            }
+
+            .opcion-menu {
+                flex: 0 0 auto;
+                border-bottom: none;
+                border-right: 1px solid rgba(0, 0, 0, 0.05);
+                white-space: nowrap;
+            }
+
+            .contenido {
+                padding: 15px;
+            }
+
+            .datos-alumno {
+                grid-template-columns: 1fr;
+            }
+
+            .tabla-horarios {
+                display: block;
+                overflow-x: auto;
+            }
+
+            .hora-actual {
+                font-size: 0.9rem;
+                padding: 6px 12px;
+            }
+
+            .titulo-sistema {
+                font-size: 1.2rem;
+            }
+
+            .barra-superior {
+                flex-wrap: wrap;
+            }
+
+            .cerrar {
+                margin-top: 10px;
+                order: 3;
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .barra-superior {
+                flex-direction: column;
+                text-align: center;
+                padding: 10px;
+            }
+
+            .logo-container {
+                margin-bottom: 10px;
+            }
+
+            .hora-actual {
+                width: 100%;
+                margin-top: 10px;
+            }
+
+            .seccion {
+                padding: 15px;
+            }
+
+            .titulo-seccion {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .barra-lateral {
+                width: 180px;
+            }
+
+            .datos-alumno {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
