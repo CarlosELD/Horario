@@ -1,16 +1,164 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link rel="stylesheet" href="horario.css">
-    </head>
-    <body>
-        <nav class="barra">
-            <div><img class="logo1" src="img/logo tecnm.png" alt="logo TECNM"></div>
-        </nav>
-        <div>
-            <div></div>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horarios SICENET</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <nav class="barra-superior">
+        <div class="logo-container">
+            <img class="logo1" src="img/tecnm.png" alt="logo TECNM">
+            <img class="logo1" src="img/itsur.png" alt="logo TECNM2">
+            <div class="titulo-sistema">SICENET</div>
         </div>
-    </body>
+        <button class="cerrar">Cerrar sesión</button>
+        <div class="hora-actual">02:59 PM</div>
+    </nav>
+    <div class="contenedor-principal">
+        <aside class="barra-lateral">
+            <div class="menu-horizontal">
+                <div class="opcion-menu activo" data-target="datos-estudiante">Datos del Estudiante</div>
+                <div class="opcion-menu" data-target="horario">Horario</div>
+                <div class="opcion-menu" data-target="calificaciones">Calificaciones</div>
+                <div class="opcion-menu" data-target="kardex">Kardex</div>
+                <div class="opcion-menu" data-target="monitoreo">Monitoreo Grupos</div>
+            </div>
+        </aside>
+        <main class="contenido">
+            <section id="datos-estudiante" class="seccion">
+                <h2 class="titulo-seccion">Datos del alumno</h2>
+                <div class="datos-alumno">
+                    <div class="dato-item">
+                        <div class="dato-label">Número de Control</div>
+                        <div></div>
+                    </div>
+                    <div class="dato-item">
+                        <div class="dato-label">Nombre</div>
+                        <div></div>
+                    </div>
+                    <div class="dato-item">
+                        <div class="dato-label">Carrera</div>
+                        <div>ING. SISTEMAS COMPUTACIONALES</div>
+                    </div>
+                    <div class="dato-item">
+                        <div class="dato-label">Especialidad</div>
+                        <div>TECNOLOGÍA PARA LA INDUSTRIA 4.0</div>
+                    </div>
+                    <div class="dato-item">
+                        <div class="dato-label">Créditos Acumulados</div>
+                        <div></div>
+                    </div>
+                    <div class="dato-item">
+                        <div class="dato-label">Créditos Actuales</div>
+                        <div></div>
+                    </div>
+                    <div class="dato-item">
+                        <div class="dato-label">Semestre</div>
+                        <div></div>
+                    </div>
+                    <div class="dato-item">
+                        <div class="dato-label">Estatus</div>
+                        <div>VIGENTE</div>
+                    </div>
+                </div>
+            </section>
+            <section id="horario" class="seccion seccion-oculta">
+                <h2 class="titulo-seccion">Carga Académica del Alumno</h2>
+                <table class="tabla-horarios">
+                    <thead>
+                        <tr>
+                            <th>ACTIVIDAD</th>
+                            <th>CLAVE</th>
+                            <th>CRÉDITOS</th>
+                            <th>LUNES</th>
+                            <th>MARTES</th>
+                            <th>MIÉRCOLES</th>
+                            <th>JUEVES</th>
+                            <th>VIERNES</th>
+                            <th>SÁBADO</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>SERVICIO SOCIAL</td>
+                            <td>SS0001</td>
+                            <td>10</td>
+                            <td>10:30-11:40</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>RESIDENCIA PROFESIONAL</td>
+                            <td>RP0001</td>
+                            <td>10</td>
+                            <td></td>
+                            <td>15:00-16:00</td>
+                            <td></td>
+                            <td>15:00-16:00</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>ADMINISTRACIÓN DE PROYECTOS</td>
+                            <td>AP0001</td>
+                            <td>5</td>
+                            <td>08:00-10:00</td>
+                            <td></td>
+                            <td>08:00-10:00</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            <section id="calificaciones" class="seccion seccion-oculta">
+                <h2 class="titulo-seccion">Calificaciones</h2>
+                <p>Contenido de calificaciones aparecerá aquí.</p>
+            </section>
+            <section id="kardex" class="seccion seccion-oculta">
+                <h2 class="titulo-seccion">Kardex</h2>
+                <p>Contenido del kardex aparecerá aquí.</p>
+            </section>
+            <section id="monitoreo" class="seccion seccion-oculta">
+                <h2 class="titulo-seccion">Monitoreo de Grupos</h2>
+                <p>Contenido de monitoreo de grupos aparecerá aquí.</p>
+            </section>
+        </main>
+    </div>
+    <footer class="f-datos">
+        <div>Instituto Tecnológico Superior del Sur de Guanajuato</div>
+        <div>Tel. 01(445) 4577468 ext 110</div>
+        <div>Todos los derechos reservados © Centro de Desarrollo de Software ITSUR</div>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const opcionesMenu = document.querySelectorAll('.opcion-menu');
+            function cambiarSeccion(targetId) {
+                document.querySelectorAll('.seccion').forEach(seccion => {
+                    seccion.classList.add('seccion-oculta');
+                });
+                document.getElementById(targetId).classList.remove('seccion-oculta');
+                opcionesMenu.forEach(opcion => {
+                    opcion.classList.remove('activo');
+                    if (opcion.getAttribute('data-target') === targetId) {
+                        opcion.classList.add('activo');
+                    }
+                });
+            }
+            opcionesMenu.forEach(opcion => {
+                opcion.addEventListener('click', function () {
+                    const targetId = this.getAttribute('data-target');
+                    cambiarSeccion(targetId);
+                });
+            });
+            cambiarSeccion('datos-estudiante');
+        });
+    </script>
+</body>
 </html>
